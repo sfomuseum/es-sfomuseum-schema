@@ -101,7 +101,7 @@
                 "match":              "name:*_x_preferred", 
                 "match_mapping_type": "string",
                 "mapping": {
-		    "type":           "string",
+		    "type":           "text",
 		    "copy_to":       "names_preferred"
                 }
 	    }},
@@ -109,7 +109,7 @@
                 "match":              "name:*_x_variant", 
                 "match_mapping_type": "string",
                 "mapping": {
-		    "type":           "string",
+		    "type":           "text",
 		    "copy_to":       [ "names_alt", "names_variant" ]
                 }
 	    }},
@@ -117,7 +117,7 @@
                 "match":              "name:*_x_colloquial", 
                 "match_mapping_type": "string",
                 "mapping": {
-		    "type":           "string",
+		    "type":           "text",
 		    "copy_to":       [ "names_alt", "names_colloquial" ]
                 }
 	    }},
@@ -125,7 +125,7 @@
                 "match":              "name:*_x_unknown", 
                 "match_mapping_type": "string",
                 "mapping": {
-		    "type":           "string",
+		    "type":           "text",
 		    "copy_to":       "names_alt"
                 }
 	    }},
@@ -133,7 +133,7 @@
                 "match":              "name:*_x_*", 
                 "match_mapping_type": "string",
                 "mapping": {
-		    "type":           "string",
+		    "type":           "text",
 		    "copy_to":       [ "names_all", "names_autocomplete" ]
                 }
 	    }},
@@ -156,43 +156,9 @@
 	    "geometry": {
                 "type": "geo_shape"
 	    },
-		"media:properites":{ "properties": { 
-		    "photo_info": { "properties": {
-			"tags": { "properties": {
-			    "tag": { "properties": {
-				"machine_tag": {
-				    "type": "boolean"
-				}
-			    }}
-		        }}
-		    }}
-                }},	    
-
-	    "sfomuseum:base_flight_id": {
-		"type": "text"
-	    },
-	    "sfomuseum:boardingarea_id": {
-		"type": "text"
-	    },
-	    "sfomuseum:building_id": {
-		"type": "text"
-	    },
-	    "sfomuseum:flight_id": {
-		"type": "text"
-	    },
-	    "sfomuseum:map_id": {
-		"type": "text"
-	    },
-	    "sfomuseum:terminal_id": {
-		"type": "text"
-	    },
-	    "src:population_date": {
-		"type": "text"
-	    },
-	    "statoids:as_of_date": {
-		"type": "text"
-	    },
-	    "properties": { "properties":{
+		"airports_all" : {
+		    "type" : "long"
+		},
 		"flysfo:journey": {
 		    "type": "text",
 		    "fielddata": true,
@@ -222,6 +188,14 @@
 			}
 		    }
 		},
+		"sfomuseum:airport_id" : {
+		    "type" : "long",
+		    "copy_to": [ "airports_all" ]
+		},
+		"sfomuseum:arrival_id" : {
+		    "type" : "long",
+		    "copy_to": [ "airports_all" ]
+		},
 		"sfomuseum:base_flight_id": {
 		    "type": "text"
 		},
@@ -236,6 +210,10 @@
 		},
 		"sfomuseum:building_id": {
 		    "type": "text"
+		},
+		"sfomuseum:departure_id" : {
+		    "type" : "long",
+		    "copy_to": [ "airports_all" ]
 		},
 		"sfomuseum:exhibition_type" : {
 		    "type" : "text",
@@ -328,7 +306,6 @@
 			}
 		    }
 		}
-	    }}
 	}
     }
 }
