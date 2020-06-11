@@ -193,6 +193,15 @@
 		"type": "text"
 	    },
 	    "properties": { "properties":{
+		"flysfo:journey": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
 		"media:properites":{ "properties": { 
 		    "photo_info": { "properties": {
 			"tags": { "properties": {
@@ -217,10 +226,25 @@
 		    "type": "text"
 		},
 		"sfomuseum:boardingarea_id": {
-		    "type": "text"
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
 		},
 		"sfomuseum:building_id": {
 		    "type": "text"
+		},
+		"sfomuseum:exhibition_type" : {
+		    "type" : "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
 		},
 		"sfomuseum:flight_id": {
 		    "type": "text"
@@ -239,7 +263,13 @@
 		    }
 		},
 		"sfomuseum:terminal_id": {
-		    "type": "text"
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
 		},
 		"src:population_date": {
 		    "type": "text"
@@ -247,6 +277,26 @@
 		"statoids:as_of_date": {
 		    "type": "text"
 		},
+		"wof:concordances": { "properties": {
+		    "iata:code": {
+			"type": "text",
+			"fielddata": true,
+			"fields": {
+			    "keyword": {
+				"type": "keyword"
+			    }
+			}
+		    },
+		    "icao:code": {
+			"type": "text",
+			"fielddata": true,
+			"fields": {
+			    "keyword": {
+				"type": "keyword"
+			    }
+			}
+		    }
+		}},
 		"wof:name" : {
 		    "type" : "text",
 		    "analyzer": "english",
