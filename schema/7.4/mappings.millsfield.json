@@ -277,6 +277,15 @@
 		"statoids:as_of_date": {
 		    "type": "text"
 		},
+		"swim:tail_number": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
 		"wof:concordances": { "properties": {
 		    "iata:code": {
 			"type": "text",
