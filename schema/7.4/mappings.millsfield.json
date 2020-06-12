@@ -159,6 +159,10 @@
 		"airports_all" : {
 		    "type" : "long"
 		},
+	    "flysfo:event": {
+		"type": "keyword",
+		"index": true
+	    },
 		"flysfo:journey": {
 		    "type": "text",
 		    "fielddata": true,
