@@ -213,7 +213,8 @@
 		    }
 		},
 		"sfomuseum:building_id": {
-		    "type": "text"
+		    "type": "keyword",
+		    "index": true
 		},
 		"sfomuseum:departure_id" : {
 		    "type" : "long",
@@ -232,7 +233,8 @@
 		    "type": "text"
 		},
 		"sfomuseum:map_id": {
-		    "type": "text"
+		    "type": "keyword",
+		    "index": true
 		},
 		"sfomuseum:placetypes" : {
 		    "type" : "text",
@@ -245,13 +247,8 @@
 		    }
 		},
 		"sfomuseum:terminal_id": {
-		    "type": "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
-		    }
+		    "type": "keyword",
+		    "index": true
 		},
 		"src:population_date": {
 		    "type": "text"
