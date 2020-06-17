@@ -69,6 +69,22 @@
     },
     "mappings": {
 	"dynamic_templates":[
+	    { "concordances": {
+		"match": "wof:concordances.*",
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type": "keyword",
+		    "index": true
+                }
+	    }},		
+	    { "country": {
+		"match": "*:country",
+                "match_mapping_type": "*",
+                "mapping": {
+		    "type": "keyword",
+		    "index": true
+                }
+	    }},		
 	    { "edtf": {
                 "match":              "edtf:*", 
                 "match_mapping_type": "*",
