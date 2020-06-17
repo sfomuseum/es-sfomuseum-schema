@@ -265,8 +265,8 @@
 			}
 		    }
 		},
-		"wof:concordances": { "properties": {
-		    "iata:code": {
+	    "wof:concordances": { "properties": {
+		"iata:code": {
 			"type": "text",
 			"fielddata": true,
 			"fields": {
@@ -285,6 +285,15 @@
 			}
 		    }
 		}},
+	    "wof:concordances_sources": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 		"wof:name" : {
 		    "type" : "text",
 		    "analyzer": "english",
