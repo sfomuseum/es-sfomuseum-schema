@@ -248,6 +248,10 @@
 		"sfomuseum:flight_id": {
 		    "type": "text"
 		},
+		"sfomuseum:flight_number": {
+		    "type": "keyword",
+		    "index": true
+		},
 		"sfomuseum:map_id": {
 		    "type": "keyword",
 		    "index": true
