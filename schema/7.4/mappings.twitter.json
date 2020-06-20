@@ -1,0 +1,11 @@
+{
+    "mappings": {
+	"properties": {
+	    "id": {
+		"type":"keyword",
+		"index": true
+	    }
+
+	}
+    }
+}

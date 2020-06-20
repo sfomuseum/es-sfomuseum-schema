@@ -232,6 +232,15 @@
 		    "type": "keyword",
 		    "index": true
 		},
+		"sfomuseum:category" : {
+		    "type" : "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
 		"sfomuseum:departure_id" : {
 		    "type" : "long",
 		    "copy_to": [ "airports_all" ]
@@ -326,7 +335,7 @@
 			}
 		    }
 		},
-		"wof:placetypes" : {
+		"wof:placetype" : {
 		    "type" : "text",
 		    "copy_to" : [ "placetypes_all" ],
 		    "fielddata": true,
