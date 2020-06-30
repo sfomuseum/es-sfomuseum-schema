@@ -303,9 +303,9 @@
 		"type": "keyword",
 		"index": true
 	    },
-	    "sfomuseum:placetypes" : {
+	    "sfomuseum:placetype" : {
 		"type" : "text",
-		"copy_to" : [ "placetypes_all" ],
+		"copy_to" : [ "placetypes_all", "search" ],
 		"fielddata": true,
 		"fields": {
 		    "keyword": {
