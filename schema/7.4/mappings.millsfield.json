@@ -89,7 +89,24 @@
                 "match":              "edtf:*", 
                 "match_mapping_type": "*",
                 "mapping": {
-		    "type":           "text"
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
+                }
+	    }},
+	    { "iata": {
+                "match":              "iata:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
+                }
+	    }},
+	    { "icao": {
+                "match":              "icao:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
                 }
 	    }},
 	    { "latitude": {
@@ -118,7 +135,7 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
-		    "copy_to":       "names_preferred"
+		    "copy_to":       [ "names_preferred", "search" ]
                 }
 	    }},
 	    { "names_x_variant": {
@@ -126,7 +143,7 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
-		    "copy_to":       [ "names_alt", "names_variant" ]
+		    "copy_to":       [ "names_alt", "names_variant", "search" ]
                 }
 	    }},
 	    { "names_x_colloquial": {
@@ -134,7 +151,7 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
-		    "copy_to":       [ "names_alt", "names_colloquial" ]
+		    "copy_to":       [ "names_alt", "names_colloquial", "search" ]
                 }
 	    }},
 	    { "names_x_unknown": {
@@ -150,7 +167,15 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
-		    "copy_to":       [ "names_all", "names_autocomplete" ]
+		    "copy_to":       [ "names_all", "names_autocomplete", "search" ]
+                }
+	    }},
+	    { "sfomuseum_any": {
+                "match":              "sfomuseum:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
                 }
 	    }},
 	    { "sfomuseum_id": {
@@ -158,6 +183,14 @@
                 "match_mapping_type": "*",
                 "mapping": {
 		    "type":           "long"
+                }
+	    }},
+	    { "swim_any": {
+                "match":              "swim:*", 
+                "match_mapping_type": "string",
+                "mapping": {
+		    "type":           "text",
+		    "copy_to":       [ "search" ]
                 }
 	    }},
 	    { "wof_id": {
@@ -179,141 +212,146 @@
 		"type": "keyword",
 		"index": true
 	    },
-		"flysfo:journey": {
-		    "type": "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+	    "flysfo:journey": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"media:properites":{ "properties": { 
-		    "photo_info": { "properties": {
-			"tags": { "properties": {
-			    "tag": { "properties": {
-				"machine_tag": {
-				    "type": "boolean"
-				}
-			    }}
-		        }}
+		}
+	    },
+	    "media:properites":{ "properties": { 
+		"photo_info": { "properties": {
+		    "tags": { "properties": {
+			"tag": { "properties": {
+			    "machine_tag": {
+				"type": "boolean"
+			    }
+			}}
 		    }}
-                }},	    
-		"placetypes_all" : {
-		    "type" : "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}}
+            }},	    
+	    "placetypes_all" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"sfomuseum:airport_id" : {
-		    "type" : "long",
-		    "copy_to": [ "airports_all" ]
-		},
-		"sfomuseum:arrival_id" : {
-		    "type" : "long",
-		    "copy_to": [ "airports_all" ]
-		},
-		"sfomuseum:base_flight_id": {
-		    "type": "text"
-		},
-		"sfomuseum:boardingarea_id": {
-		    "type": "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}
+	    },
+	    "search": {
+		"type": "text",
+		"analyzer": "english",
+		"search_analyzer": "english"
+	    },
+	    "sfomuseum:airport_id" : {
+		"type" : "long",
+		"copy_to": [ "airports_all" ]
+	    },
+	    "sfomuseum:arrival_id" : {
+		"type" : "long",
+		"copy_to": [ "airports_all" ]
+	    },
+	    "sfomuseum:base_flight_id": {
+		"type": "text"
+	    },
+	    "sfomuseum:boardingarea_id": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"sfomuseum:building_id": {
-		    "type": "keyword",
-		    "index": true
-		},
-		"sfomuseum:category" : {
-		    "type" : "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}
+	    },
+	    "sfomuseum:building_id": {
+		"type": "keyword",
+		"index": true
+	    },
+	    "sfomuseum:category" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"sfomuseum:departure_id" : {
-		    "type" : "long",
-		    "copy_to": [ "airports_all" ]
-		},
-		"sfomuseum:exhibition_type" : {
-		    "type" : "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}
+	    },
+	    "sfomuseum:departure_id" : {
+		"type" : "long",
+		"copy_to": [ "airports_all" ]
+	    },
+	    "sfomuseum:exhibition_type" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"sfomuseum:flight_id": {
-		    "type": "text"
-		},
-		"sfomuseum:flight_number": {
-		    "type": "keyword",
-		    "index": true
-		},
-		"sfomuseum:map_id": {
-		    "type": "keyword",
-		    "index": true
-		},
-		"sfomuseum:placetypes" : {
-		    "type" : "text",
-		    "copy_to" : [ "placetypes_all" ],
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}
+	    },
+	    "sfomuseum:flight_id": {
+		"type": "text"
+	    },
+	    "sfomuseum:flight_number": {
+		"type": "keyword",
+		"index": true
+	    },
+	    "sfomuseum:map_id": {
+		"type": "keyword",
+		"index": true
+	    },
+	    "sfomuseum:placetypes" : {
+		"type" : "text",
+		"copy_to" : [ "placetypes_all" ],
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
-		"sfomuseum:terminal_id": {
-		    "type": "keyword",
-		    "index": true
-		},
-		"src:population_date": {
-		    "type": "text"
-		},
-		"statoids:as_of_date": {
-		    "type": "text"
-		},
-		"swim:tail_number": {
-		    "type": "text",
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+		}
+	    },
+	    "sfomuseum:terminal_id": {
+		"type": "keyword",
+		"index": true
+	    },
+	    "src:population_date": {
+		"type": "text"
+	    },
+	    "statoids:as_of_date": {
+		"type": "text"
+	    },
+	    "swim:tail_number": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
-		},
+		}
+	    },
 	    "wof:concordances": { "properties": {
 		"iata:code": {
-			"type": "text",
-			"fielddata": true,
-			"fields": {
-			    "keyword": {
-				"type": "keyword"
-			    }
-			}
-		    },
-		    "icao:code": {
-			"type": "text",
-			"fielddata": true,
-			"fields": {
-			    "keyword": {
-				"type": "keyword"
-			    }
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
 			}
 		    }
-		}},
+		},
+		"icao:code": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		}
+	    }},
 	    "wof:concordances_sources": {
 		"type": "text",
 		"fielddata": true,
@@ -323,28 +361,28 @@
 		    }
 		}
 	    },
-		"wof:name" : {
-		    "type" : "text",
-		    "analyzer": "english",
-		    "search_analyzer": "english",
-		    "copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete" ],
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
-		    }
-		},
-		"wof:placetype" : {
-		    "type" : "text",
-		    "copy_to" : [ "placetypes_all" ],
-		    "fielddata": true,
-		    "fields": {
-			"keyword": {
-			    "type": "keyword"
-			}
+	    "wof:name" : {
+		"type" : "text",
+		"analyzer": "english",
+		"search_analyzer": "english",
+		"copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete" ],
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
 		    }
 		}
+	    },
+	    "wof:placetype" : {
+		"type" : "text",
+		"copy_to" : [ "placetypes_all", "search" ],
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    }
 	}
     }
 }
