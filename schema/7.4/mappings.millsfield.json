@@ -255,13 +255,18 @@
 		"analyzer": "english",
 		"search_analyzer": "english"
 	    },
+	    "sfomuseum:accession_number": {
+		"type":"keyword",
+		"indexed":true,
+		"copy_to": [ "search" ]
+	    },
 	    "sfomuseum:airport_id" : {
 		"type" : "long",
-		"copy_to": [ "airports_all" ]
+		"copy_to": [ "airports_all", "search" ]
 	    },
 	    "sfomuseum:arrival_id" : {
 		"type" : "long",
-		"copy_to": [ "airports_all" ]
+		"copy_to": [ "airports_all", "search" ]
 	    },
 	    "sfomuseum:base_flight_id": {
 		"type": "text"
@@ -273,11 +278,13 @@
 		    "keyword": {
 			"type": "keyword"
 		    }
-		}
+		},
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:building_id": {
 		"type": "keyword",
-		"index": true
+		"index": true,
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:category" : {
 		"type" : "text",
@@ -287,6 +294,11 @@
 			"type": "keyword"
 		    }
 		}
+	    },
+	    "sfomuseum:creditline": {
+		"type": "text",
+		"analyzer": "english",
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:date": {
 		"type": "text",
@@ -299,7 +311,12 @@
 	    },
 	    "sfomuseum:departure_id" : {
 		"type" : "long",
-		"copy_to": [ "airports_all" ]
+		"copy_to": [ "airports_all", "search" ]
+	    },
+	    "sfomuseum:description": {
+		"type": "text",
+		"analyzer": "english",
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:exhibition_type" : {
 		"type" : "text",
@@ -311,15 +328,18 @@
 		}
 	    },
 	    "sfomuseum:flight_id": {
-		"type": "text"
+		"type": "text",
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:flight_number": {
 		"type": "keyword",
-		"index": true
+		"index": true,
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:map_id": {
 		"type": "keyword",
-		"index": true
+		"index": true,
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:placetype" : {
 		"type" : "text",
@@ -333,7 +353,8 @@
 	    },
 	    "sfomuseum:terminal_id": {
 		"type": "keyword",
-		"index": true
+		"index": true,
+		"copy_to": [ "search" ]
 	    },
 	    "src:population_date": {
 		"type": "text"
@@ -348,7 +369,8 @@
 		    "keyword": {
 			"type": "keyword"
 		    }
-		}
+		},
+		"copy_to": [ "search" ]
 	    },
 	    "wof:concordances": { "properties": {
 		"iata:code": {
@@ -383,7 +405,7 @@
 		"type" : "text",
 		"analyzer": "english",
 		"search_analyzer": "english",
-		"copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete" ],
+		"copy_to" : [ "names_all", "name_not_analyzed", "names_autocomplete", "search" ],
 		"fielddata": true,
 		"fields": {
 		    "keyword": {
