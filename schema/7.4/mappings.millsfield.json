@@ -257,7 +257,6 @@
 	    },
 	    "sfomuseum:accession_number": {
 		"type":"keyword",
-		"indexed":true,
 		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:airport_id" : {
