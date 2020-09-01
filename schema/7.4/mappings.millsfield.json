@@ -202,12 +202,18 @@
 	    }}
 	],
         "properties": {
-	    "geometry": {
-                "type": "geo_shape"
+	    "airports_all" : {
+		"type" : "long"
 	    },
-		"airports_all" : {
-		    "type" : "long"
-		},
+	    "edtf:date": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "flysfo:event": {
 		"type": "keyword",
 		"index": true
@@ -220,6 +226,9 @@
 			"type": "keyword"
 		    }
 		}
+	    },
+	    "geometry": {
+                "type": "geo_shape"
 	    },
 	    "media:properites":{ "properties": { 
 		"photo_info": { "properties": {
@@ -272,6 +281,15 @@
 	    },
 	    "sfomuseum:category" : {
 		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "sfomuseum:date": {
+		"type": "text",
 		"fielddata": true,
 		"fields": {
 		    "keyword": {
