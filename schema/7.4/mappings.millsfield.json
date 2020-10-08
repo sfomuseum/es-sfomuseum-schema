@@ -371,6 +371,24 @@
 		},
 		"copy_to": [ "search" ]
 	    },
+	    "twitter:twitter": { "properties": {
+		"entities": { "properties": {
+		    "hashtags": { "properties": {
+			"text": {
+			    "type": "text",
+			    "fielddata": true,
+			    "fields": {
+				"keyword": {
+				    "type": "keyword"
+				}			    
+			    }
+			}
+		    }}
+		}},
+		"full_text": {
+		    "copy_to": [ "search" ]
+		}
+	    }},				 
 	    "wof:concordances": { "properties": {
 		"iata:code": {
 		    "type": "text",
