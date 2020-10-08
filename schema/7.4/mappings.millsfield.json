@@ -371,7 +371,7 @@
 		},
 		"copy_to": [ "search" ]
 	    },
-	    "twitter:twitter": { "properties": {
+	    "twitter:tweet": { "properties": {
 		"entities": { "properties": {
 		    "hashtags": { "properties": {
 			"text": {
@@ -386,7 +386,12 @@
 		    }}
 		}},
 		"full_text": {
+		    "type": "text",
 		    "copy_to": [ "search" ]
+		},
+		"id": {
+		    "index": true,
+		    "type": "long"
 		}
 	    }},				 
 	    "wof:concordances": { "properties": {
