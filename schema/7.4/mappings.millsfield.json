@@ -230,6 +230,28 @@
 	    "geometry": {
                 "type": "geo_shape"
 	    },
+	    "instagram:post": { "properties": {
+		"caption": { "properties": {
+		    "body": { 
+			"type": "text",
+			"copy_to": [ "search" ]
+		    },
+		    "hashtags": { 
+			"type": "text",
+			"copy_to": [ "search" ],
+			"fielddata": true,
+			"fields": {
+			    "keyword": {
+				"type": "keyword"
+			    }			    
+			}}
+		    }}
+		}},
+		"media_id": {
+		    "index": true,
+		    "type": "text"
+		}
+	    }},				 
 	    "media:properites":{ "properties": { 
 		"photo_info": { "properties": {
 		    "tags": { "properties": {
