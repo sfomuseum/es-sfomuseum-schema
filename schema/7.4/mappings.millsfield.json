@@ -237,15 +237,9 @@
 			"copy_to": [ "search" ]
 		    },
 		    "hashtags": { 
-			"type": "text",
-			"copy_to": [ "search" ],
-			"fielddata": true,
-			"fields": {
-			    "keyword": {
-				"type": "keyword"
-			    }			    
-			}}
-		    }},
+			"type": "keyword",
+			"copy_to": [ "search" ]
+		    }}},
 		"media_id": {
 		    "index": true,
 		    "type": "keyword"
