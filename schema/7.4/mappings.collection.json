@@ -185,14 +185,6 @@
 		    "type":           "long"
                 }
 	    }},
-	    { "swim_any": {
-                "match":              "swim:*", 
-                "match_mapping_type": "string",
-                "mapping": {
-		    "type":           "text",
-		    "copy_to":       [ "search" ]
-                }
-	    }},
 	    { "wof_id": {
                 "match":              "wof:*_id", 
                 "match_mapping_type": "*",
@@ -214,37 +206,9 @@
 		    }
 		}
 	    },
-	    "flysfo:event": {
-		"type": "keyword",
-		"index": true
-	    },
-	    "flysfo:journey": {
-		"type": "text",
-		"fielddata": true,
-		"fields": {
-		    "keyword": {
-			"type": "keyword"
-		    }
-		}
-	    },
 	    "geometry": {
                 "type": "geo_shape"
 	    },
-	    "instagram:post": { "properties": {
-		"caption": { "properties": {
-		    "body": { 
-			"type": "text",
-			"copy_to": [ "search" ]
-		    },
-		    "hashtags": { 
-			"type": "keyword",
-			"copy_to": [ "search" ]
-		    }}},
-		"media_id": {
-		    "index": true,
-		    "type": "keyword"
-		}
-	    }},				 
 	    "media:properites":{ "properties": { 
 		"photo_info": { "properties": {
 		    "tags": { "properties": {
@@ -277,13 +241,6 @@
 	    "sfomuseum:airport_id" : {
 		"type" : "long",
 		"copy_to": [ "airports_all", "search" ]
-	    },
-	    "sfomuseum:arrival_id" : {
-		"type" : "long",
-		"copy_to": [ "airports_all", "search" ]
-	    },
-	    "sfomuseum:base_flight_id": {
-		"type": "text"
 	    },
 	    "sfomuseum:boardingarea_id": {
 		"type": "text",
@@ -323,10 +280,6 @@
 		    }
 		}
 	    },
-	    "sfomuseum:departure_id" : {
-		"type" : "long",
-		"copy_to": [ "airports_all", "search" ]
-	    },
 	    "sfomuseum:description": {
 		"type": "text",
 		"analyzer": "english",
@@ -343,11 +296,6 @@
 	    },
 	    "sfomuseum:flight_id": {
 		"type": "text",
-		"copy_to": [ "search" ]
-	    },
-	    "sfomuseum:flight_number": {
-		"type": "keyword",
-		"index": true,
 		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:map_id": {
@@ -376,39 +324,6 @@
 	    "statoids:as_of_date": {
 		"type": "text"
 	    },
-	    "swim:tail_number": {
-		"type": "text",
-		"fielddata": true,
-		"fields": {
-		    "keyword": {
-			"type": "keyword"
-		    }
-		},
-		"copy_to": [ "search" ]
-	    },
-	    "twitter:tweet": { "properties": {
-		"entities": { "properties": {
-		    "hashtags": { "properties": {
-			"text": {
-			    "type": "text",
-			    "fielddata": true,
-			    "fields": {
-				"keyword": {
-				    "type": "keyword"
-				}			    
-			    }
-			}
-		    }}
-		}},
-		"full_text": {
-		    "type": "text",
-		    "copy_to": [ "search" ]
-		},
-		"id": {
-		    "index": true,
-		    "type": "long"
-		}
-	    }},				 
 	    "wof:concordances": { "properties": {
 		"iata:code": {
 		    "type": "text",
