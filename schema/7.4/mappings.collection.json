@@ -267,18 +267,11 @@
 		}
 	    },
 	    "sfomuseum:creditline": {
-		"type": "text",
-		"analyzer": "english",
+		"type": "keyword",
 		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:date": {
-		"type": "text",
-		"fielddata": true,
-		"fields": {
-		    "keyword": {
-			"type": "keyword"
-		    }
-		}
+		"type": "text"
 	    },
 	    "sfomuseum:description": {
 		"type": "text",
@@ -294,13 +287,8 @@
 		    }
 		}
 	    },
-	    "sfomuseum:flight_id": {
-		"type": "text",
-		"copy_to": [ "search" ]
-	    },
-	    "sfomuseum:map_id": {
+	    "sfomuseum:medium": {
 		"type": "keyword",
-		"index": true,
 		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:placetype" : {
