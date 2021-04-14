@@ -7,11 +7,11 @@ health:
 
 refresh:
 	curl -XDELETE $(HOST)/$(INDEX)
-	cat schema/7.4/mappings.$(INDEX).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
+	cat schema/7.4/mappings.$(MAPPINGS).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
 	curl -H 'Content-type:application/json' -XPUT $(HOST)/$(INDEX)/_settings -d '{"index.mapping.total_fields.limit": 3500}'
 
 create:
-	cat schema/7.4/mappings.$(INDEX).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
+	cat schema/7.4/mappings.$(MAPPINGS).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
 	curl -H 'Content-type:application/json' -XPUT $(HOST)/$(INDEX)/_settings -d '{"index.mapping.total_fields.limit": 3500}'
 
 count:
