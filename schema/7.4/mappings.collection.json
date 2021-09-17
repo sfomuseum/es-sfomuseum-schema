@@ -266,6 +266,15 @@
 		    }
 		}
 	    },
+	    "sfomuseum:collection" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "sfomuseum:creditline": {
 		"type": "keyword",
 		"copy_to": [ "search" ]
@@ -301,6 +310,15 @@
 		    }
 		}
 	    },
+	    "sfomuseum:subcategory" : {
+		"type" : "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "sfomuseum:terminal_id": {
 		"type": "keyword",
 		"index": true,
@@ -313,7 +331,7 @@
 		"type": "text"
 	    },
 	    "wof:concordances": { "properties": {
-		"iata:code": {
+		"iata:*": {
 		    "type": "text",
 		    "fielddata": true,
 		    "fields": {
@@ -322,7 +340,16 @@
 			}
 		    }
 		},
-		"icao:code": {
+		"icao:*": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
+		"wd:id": {
 		    "type": "text",
 		    "fielddata": true,
 		    "fields": {
