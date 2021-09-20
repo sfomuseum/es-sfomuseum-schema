@@ -15,4 +15,4 @@ create:
 	curl -H 'Content-type:application/json' -XPUT $(HOST)/$(INDEX)/_settings -d '{"index.mapping.total_fields.limit": 3500}'
 
 count:
-	curl -X POST '$(HOST)/_count?q=*'
+	curl -s '$(HOST)/$(INDEX)/_count' | jq '.count'
