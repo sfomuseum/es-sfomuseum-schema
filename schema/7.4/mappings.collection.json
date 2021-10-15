@@ -216,7 +216,8 @@
 		    "keyword": {
 			"type": "keyword"
 		    }
-		}
+		},
+		"copy_to": [ "subjects_all" ]
 	    },
 	    "loc:subject_headings": {
 		"type": "text",
@@ -225,7 +226,8 @@
 		    "keyword": {
 			"type": "keyword"
 		    }
-		}
+		},
+		"copy_to": [ "subjects_all" ]
 	    },
 	    "media:properites":{ "properties": { 
 		"photo_info": { "properties": {
@@ -347,6 +349,10 @@
 	    },
 	    "statoids:as_of_date": {
 		"type": "text"
+	    },
+	    "subjects_all": {
+		"type": "keyword",
+		"index": true
 	    },
 	    "wof:concordances": { "properties": {
 		"iata:*": {
