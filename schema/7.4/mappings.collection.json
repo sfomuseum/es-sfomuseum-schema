@@ -209,6 +209,24 @@
 	    "geometry": {
                 "type": "geo_shape"
 	    },
+	    "loc:named_authorities": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "loc:subject_headings": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "media:properites":{ "properties": { 
 		"photo_info": { "properties": {
 		    "tags": { "properties": {
