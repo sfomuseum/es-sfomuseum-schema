@@ -12,7 +12,9 @@ refresh:
 
 create:
 	cat schema/7.4/mappings.$(MAPPINGS).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
-	# curl -H 'Content-type:application/json' -XPUT $(HOST)/$(INDEX)/_settings -d '{"index.mapping.total_fields.limit": 5000}'
+
+limits:
+	curl -H 'Content-type:application/json' -XPUT $(HOST)/$(INDEX)/_settings -d '{"index.mapping.total_fields.limit": 5000}'
 
 count:
 	curl -s '$(HOST)/$(INDEX)/_count' | jq '.count'
