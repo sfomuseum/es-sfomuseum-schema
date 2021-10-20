@@ -5,6 +5,9 @@ health:
 
 # this doesn't work in AWS ES and is a bad idea anyway (20200630/thisisaaronland)
 
+refresh-collection-dev:
+	@make refresh HOST=http://localhost:9200 MAPPINGS=collection INDEX=collection
+
 refresh:
 	curl -XDELETE $(HOST)/$(INDEX)
 	cat schema/7.4/mappings.$(MAPPINGS).json | curl -XPUT -H 'Content-type: application/json' $(HOST)/$(INDEX) -d @-
