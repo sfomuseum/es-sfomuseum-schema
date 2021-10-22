@@ -75,7 +75,12 @@
                 "mapping": {
 		    "type": "keyword",
 		    "index": true
-                }
+                },
+		"fields": {
+		    "raw": { 
+			"type":  "keyword"
+		    }
+		}
 	    }},		
 	    { "country": {
 		"match": "*:country",
