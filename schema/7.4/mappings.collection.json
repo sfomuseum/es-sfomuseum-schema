@@ -75,12 +75,7 @@
                 "mapping": {
 		    "type": "keyword",
 		    "index": true
-                },
-		"fields": {
-		    "raw": { 
-			"type":  "keyword"
-		    }
-		}
+                }
 	    }},		
 	    { "country": {
 		"match": "*:country",
@@ -103,6 +98,12 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
+		    "fielddata" : true,
+		    "fields": {
+			"raw": { 
+			    "type":  "keyword"
+			}
+		    },
 		    "copy_to":       [ "search" ]
                 }
 	    }},
@@ -111,6 +112,12 @@
                 "match_mapping_type": "string",
                 "mapping": {
 		    "type":           "text",
+		    "fielddata" : true,
+		    "fields": {
+			"raw": { 
+			    "type":  "keyword"
+			}
+		    },
 		    "copy_to":       [ "search" ]
                 }
 	    }},
