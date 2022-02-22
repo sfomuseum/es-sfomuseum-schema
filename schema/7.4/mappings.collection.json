@@ -280,6 +280,10 @@
 		"type" : "long",
 		"copy_to": [ "airports_all", "search" ]
 	    },
+	    "sfomuseum:artist": {
+		"type": "keyword",
+		"copy_to": [ "search" ]
+	    },
 	    "sfomuseum:boardingarea_id": {
 		"type": "text",
 		"fielddata": true,
@@ -333,6 +337,10 @@
 			"type": "keyword"
 		    }
 		}
+	    },
+	    "sfomuseum:maker": {
+		"type": "keyword",
+		"copy_to": [ "search" ]
 	    },
 	    "sfomuseum:medium": {
 		"type": "keyword",
