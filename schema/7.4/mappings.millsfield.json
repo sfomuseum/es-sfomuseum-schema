@@ -386,20 +386,16 @@
 		},
 		"copy_to": [ "search" ]
 	    },
+	    "twitter:hashtags": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "twitter:tweet": { "properties": {
-		"entities": { "properties": {
-		    "hashtags": { "properties": {
-			"text": {
-			    "type": "text",
-			    "fielddata": true,
-			    "fields": {
-				"keyword": {
-				    "type": "keyword"
-				}			    
-			    }
-			}
-		    }}
-		}},
 		"full_text": {
 		    "type": "text",
 		    "copy_to": [ "search" ]
@@ -409,6 +405,15 @@
 		    "type": "long"
 		}
 	    }},				 
+	    "twitter:user_mentions": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "wof:concordances": { "properties": {
 		"iata:code": {
 		    "type": "text",
