@@ -1,0 +1,64 @@
+{
+    "settings": {
+	"analysis": {
+	    "filter": {
+		"punctuation_filter": {
+		    "type": "pattern_replace",
+		    "pattern": "\\p{Punct}|\\uFE0E|\\uFE0F|\\uD83C\\uDFFB|\\uD83C\\uDFFC|\\uD83C\\uDFFD|\\uD83C\\uDFFE|\\uD83C\\uDFFF",
+		    "replace": ""
+		},
+		"remove_empty_filter": {
+		    "type": "length",
+		    "min": 1
+		},
+		"snowball_eng" : {
+                    "type" : "snowball",
+                    "language" : "English"
+		},
+		"ngram":{
+		    "type":"ngram",
+		    "min_gram":3,
+		    "max_gram":4
+		}
+	    },
+	    "analyzer": {
+		"default": {
+		    "type": "simple"
+		},		
+		"default_search": {
+		    "type": "whitespace"
+		},
+		"keyword": {
+		    "tokenizer": "keyword",
+		    "filter": [
+			"lowercase",
+			"punctuation_filter",
+			"remove_empty_filter"
+		    ]
+		}
+	    }
+	}
+    },
+    "mappings": {
+        "properties": {
+	    "tailnumber": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
+	    "aircraft": {
+		"type": "text",
+		"fielddata": true,
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    }
+	}
+    }
+}
