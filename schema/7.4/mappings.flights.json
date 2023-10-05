@@ -85,7 +85,75 @@
 			"type": "keyword"
 		    }
 		}
-	    }
+	    },
+                "approach": {
+                    "properties": {
+                        "elevation": {
+                            "type": "long"
+                        },
+                        "latitude": {
+                            "type": "float"
+                        },
+                        "longitude": {
+                            "type": "float"
+                        },
+                        "timestamp": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "ata": {
+                    "type": "long"
+                },
+                "atd": {
+                    "type": "long"
+                },
+                "path": {
+                    "properties": {
+                        "altitude": {
+                            "type": "text"
+                        },
+                        "latitude": {
+                            "type": "float"
+                        },
+                        "longitude": {
+                            "type": "float"
+                        },
+                        "speed": {
+                            "type": "long"
+                        },
+                        "timestamp": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "route": {
+                    "properties": {
+                        "latitude": {
+                            "type": "float"
+                        },
+                        "longitude": {
+                            "type": "float"
+                        }
+                    }
+                },
+                "takeoff": {
+                    "properties": {
+                        "elevation": {
+                            "type": "long"
+                        },
+                        "latitude": {
+                            "type": "float"
+                        },
+                        "longitude": {
+                            "type": "float"
+                        },
+                        "timestamp": {
+                            "type": "long"
+                        }
+                    }
+                }
+
 	}
     }
 }
