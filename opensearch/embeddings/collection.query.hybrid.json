@@ -1,0 +1,29 @@
+{
+  "_source": {
+    "exclude": [
+      "search_embeddings"
+    ]
+  },
+  "query": {
+    "hybrid": {
+      "queries": [
+        {
+          "match": {
+            "text": {
+              "query": "{QUERY}"
+            }
+          }
+        },
+        {
+          "neural": {
+            "search_embeddings": {
+              "query_text": "{QUERY}",
+              "model_id": "{MODEL}",
+              "k": 5
+            }
+          }
+        }
+      ]
+    }
+  }
+}
