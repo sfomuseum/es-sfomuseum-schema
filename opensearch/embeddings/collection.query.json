@@ -1,0 +1,41 @@
+{
+  "_source": {
+    "excludes": [
+      "search_embeddings"
+    ]
+  },
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "script_score": {
+            "query": {
+              "neural": {
+                "search_embeddings": {
+                  "query_text": "{QUERY}",
+                  "model_id": "{MODEL}",
+                  "k": 10
+                }
+              }
+            },
+            "script": {
+              "source": "_score * 1.5"
+            }
+          }
+        },
+        {
+          "script_score": {
+            "query": {
+              "match": {
+                "search": "{QUERY}"
+              }
+            },
+            "script": {
+              "source": "_score * 1.7"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
