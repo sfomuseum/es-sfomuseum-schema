@@ -5,7 +5,7 @@
 	    "text_embedding": {
 		"model_id": "-mZN-YsBgYJTQAn-ZEQT",
 		"field_map": {
-		    "search": "search_embeddings" 
+		    "sfomuseum:description": "sfomuseum:description_embeddings" 
 		}
 	    }
 	}

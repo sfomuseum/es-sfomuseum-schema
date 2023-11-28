@@ -1,7 +1,7 @@
 {
     "settings": {
 	"index.knn": true,
-	"default_pipeline": "nlp-ingest-collection",
+	"default_pipeline": "collection-embeddings",
 	"index": {
 	    "mapping": {
 		"total_fields": {
@@ -281,16 +281,6 @@
 		"analyzer": "english",
 		"search_analyzer": "english"
 	    },
-	    "search_embeddings": {
-		"type": "knn_vector",
-		"dimension": 768,
-		"method": {
-		    "engine": "lucene",
-		    "space_type": "l2",
-		    "name": "hnsw",
-		    "parameters": {}
-		}
-	    },
 	    "sfomuseum:accession_number": {
 		"type":"keyword",
 		"copy_to": [ "search" ]
@@ -347,6 +337,16 @@
 		"type": "text",
 		"analyzer": "english",
 		"copy_to": [ "search" ]
+	    },
+	    "sfomuseum:description_embeddings": {
+		"type": "knn_vector",
+		"dimension": 768,
+		"method": {
+		    "engine": "lucene",
+		    "space_type": "l2",
+		    "name": "hnsw",
+		    "parameters": {}
+		}
 	    },
 	    "sfomuseum:exhibition_type" : {
 		"type" : "text",
