@@ -1,7 +1,7 @@
 {
   "_source": {
     "excludes": [
-      "search_embeddings"
+      "sfomuseum:description_embeddings"
     ]
   },
   "query": {
@@ -11,7 +11,7 @@
           "script_score": {
             "query": {
               "neural": {
-                "search_embeddings": {
+                "sfomuseum:description_embeddings": {
                   "query_text": "{QUERY}",
                   "model_id": "{MODEL}",
                   "k": 10
@@ -27,7 +27,7 @@
           "script_score": {
             "query": {
               "match": {
-                "search": "{QUERY}"
+                "sfomuseum:description": "{QUERY}"
               }
             },
             "script": {
