@@ -12,7 +12,7 @@
             "query": {
               "neural": {
                 "sfomuseum:description_embeddings": {
-                  "query_text": "{QUERY}",
+                  "query_text": "waiting+for+a+plane",
                   "model_id": "{MODEL}",
                   "k": 10
                 }
@@ -27,7 +27,7 @@
           "script_score": {
             "query": {
               "match": {
-                "sfomuseum:description": "{QUERY}"
+                "sfomuseum:description": "waiting+for+a+plane"
               }
             },
             "script": {
