@@ -361,6 +361,10 @@
 		"type": "keyword",
 		"copy_to": [ "search" ]
 	    },
+	    "sfomuseum:map_id": {
+		"type": "keyword",
+		"copy_to": [ "search" ]
+	    },
 	    "sfomuseum:medium": {
 		"type": "keyword",
 		"copy_to": [ "search" ]
