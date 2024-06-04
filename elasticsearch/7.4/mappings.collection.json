@@ -234,6 +234,12 @@
 	    "geometry": {
                 "type": "geo_shape"
 	    },
+	    "geom:area": {
+		"type": "float"
+	    },
+	    "geom:area_square_m": {
+		"type": "float"
+	    },
 	    "loc:named_authorities": {
 		"type": "text",
 		"fielddata": true,
@@ -265,6 +271,15 @@
 		    }}
 		}}
             }},	    
+	    "ne:max_label": {
+		"type": "float"
+	    },
+	    "ne:min_label": {
+		"type": "float"
+	    },
+	    "ne:UN_LONG": {
+		"type": "float"
+	    },
 	    "placetypes_all" : {
 		"type" : "text",
 		"fielddata": true,
@@ -349,6 +364,10 @@
 		"type": "keyword",
 		"copy_to": [ "search" ]
 	    },
+            "sfomuseum:map_id": {
+                "type": "keyword",
+                "copy_to": [ "search" ]
+            },
 	    "sfomuseum:medium": {
 		"type": "keyword",
 		"copy_to": [ "search" ]
@@ -407,6 +426,15 @@
 		    }
 		},
 		"wd:id": {
+		    "type": "text",
+		    "fielddata": true,
+		    "fields": {
+			"keyword": {
+			    "type": "keyword"
+			}
+		    }
+		},
+		"uscensus:geoid": {
 		    "type": "text",
 		    "fielddata": true,
 		    "fields": {
