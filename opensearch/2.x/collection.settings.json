@@ -234,6 +234,14 @@
 	    "geometry": {
                 "type": "geo_shape"
 	    },
+	    "hexcolors": {
+		"type": "text",
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },
 	    "loc:named_authorities": {
 		"type": "text",
 		"fielddata": true,
@@ -264,7 +272,10 @@
 			}}
 		    }}
 		}}
-            }},	    
+            }},
+	    "millsfield:images_colors_refs.marekm4.hex": {
+		"copy_to": [ "hexcolors" ]		    
+	    },
 	    "placetypes_all" : {
 		"type" : "text",
 		"fielddata": true,
