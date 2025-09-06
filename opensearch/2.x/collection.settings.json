@@ -3,7 +3,7 @@
 	"index": {
 	    "mapping": {
 		"total_fields": {
-		    "limit": 6000
+		    "limit": 7000
 		}
 	    }
 	},
