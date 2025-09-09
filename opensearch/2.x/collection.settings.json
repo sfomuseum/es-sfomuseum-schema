@@ -3,7 +3,7 @@
 	"index": {
 	    "mapping": {
 		"total_fields": {
-		    "limit": 7000
+		    "limit": 9000
 		}
 	    }
 	},
@@ -384,6 +384,14 @@
 		    }
 		}
 	    },
+	    "sfomuseum:primary_image": {
+		"type": "long",
+		"fields": {
+		    "keyword": {
+			"type": "keyword"
+		    }
+		}
+	    },		
 	    "sfomuseum:subcategory" : {
 		"type" : "text",
 		"fielddata": true,
